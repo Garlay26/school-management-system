@@ -13,7 +13,7 @@
             <a class="nav-link" href="{{route('student')}}">Students</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Teachers</a>
+            <a class="nav-link" href="{{route('teacher')}}">Teachers</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
