@@ -15,29 +15,19 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Course</th>
-            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($teachers as $teache)
           <tr>
-            <th scope="row">1</th>
-            <td>Khin</td>
-            <td>Php</td>
-            <td>Yangon</td>
+            <td>{{$teache->id}}</td>
+            <td>{{$teache->name}}</td>
+            <td>{{$teache->phone}}</td>
+            <td> - </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Chan</td>
-            <td>React</td>
-            <td>Yangon</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Yoon</td>
-            <td>BI</td>
-            <td>Yangon</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

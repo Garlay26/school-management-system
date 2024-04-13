@@ -13,6 +13,9 @@
             <a class="nav-link" href="{{route('student')}}">Students</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{route('new-student')}}">Add Student</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{route('teacher')}}">Teachers</a>
           </li>
         </ul>

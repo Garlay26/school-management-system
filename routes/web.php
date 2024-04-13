@@ -23,7 +23,11 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/student', [StudentController::class, 'index'])->name('student');
+Route::get('/new-student', [StudentController::class, 'create'])->name('new-student');
+Route::post('/register-student', [StudentController::class, 'store'])->name('register-student');
+
 Route::get('/teacher',[TeacherController::class,'index'])->name('teacher');
+
 
 
 
