@@ -10,4 +10,9 @@ class Student extends Model
     use HasFactory;
     protected $table = 'students';
     protected $guarded = [];
+
+    public function calculateProfit($value){
+        $profit = ($value * 2) + 1;
+        return $profit;
+    }
 }
