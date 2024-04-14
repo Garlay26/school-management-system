@@ -16,16 +16,14 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
-            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($teachers as $teache)
+          @foreach ($teachers as $teacher)
           <tr>
-            <td>{{$teache->id}}</td>
-            <td>{{$teache->name}}</td>
-            <td>{{$teache->phone}}</td>
-            <td> - </td>
+            <td>{{$teacher->id}}</td>
+            <td>{{$teacher->name}}</td>
+            <td>{{$teacher->phone}}</td>
           </tr>
           @endforeach
         </tbody>

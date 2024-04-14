@@ -16,7 +16,12 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('code');
             $table->string('phone');
+            $table->integer('age');
+            $table->string('address');
+            $table->date('birthday');
+            $table->date('regsiter_date');
             $table->timestamps();
         });
     }

@@ -27,6 +27,9 @@ Route::get('/new-student', [StudentController::class, 'create'])->name('new-stud
 Route::post('/register-student', [StudentController::class, 'store'])->name('register-student');
 
 Route::get('/teacher',[TeacherController::class,'index'])->name('teacher');
+Route::get('/new-teacher',[TeacherController::class,'create'])->name('new-teacher');
+Route::post('/register-teacher', [TeacherController::class, 'store'])->name('register-teacher');
+
 
 
 
