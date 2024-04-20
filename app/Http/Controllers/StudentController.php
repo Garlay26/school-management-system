@@ -32,4 +32,38 @@ class StudentController extends Controller
 
         return redirect()->route('student');
     }
+
+    public function edit($id){
+        try {
+            $student = Student::find($id);
+            $studentName = $student->name;
+            return view('edit-student',['edit_student' => $student]);
+        } catch (\Throwable $th) {
+            return redirect()->route('student')->with('error','Something Went Wrong');
+        }
+       
+    }
+
+    public function update(request $request){
+        // dd($request);
+        $student = Student::find($request->id);
+        $student->update([
+            'name' => $request->name,
+            'code' => $request->code,
+            'phone' => $request->phone,
+            'age' => $request->age,
+            'address' => $request->address,
+            'birthday' => date('Y-m-d',strtotime($request->birthday)),
+            'regsiter_date' =>date('Y-m-d',strtotime($request->register_date)),
+        ]);
+
+        return redirect()->route('student');
+    }
+    
+    public function delete($id){
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('student');
+    }
+
 }

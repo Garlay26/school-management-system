@@ -24,7 +24,10 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 Route::get('/new-student', [StudentController::class, 'create'])->name('new-student');
+Route::get('/edit-student/{id}', [StudentController::class, 'edit'])->name('edit-student');
 Route::post('/register-student', [StudentController::class, 'store'])->name('register-student');
+Route::post('/update-student', [StudentController::class, 'update'])->name('update-student');
+Route::get('/delete-student/{id}', [StudentController::class, 'delete'])->name('delete-student');
 
 Route::get('/teacher',[TeacherController::class,'index'])->name('teacher');
 Route::get('/new-teacher',[TeacherController::class,'create'])->name('new-teacher');
