@@ -41,7 +41,6 @@ class StudentController extends Controller
         } catch (\Throwable $th) {
             return redirect()->route('student')->with('error','Something Went Wrong');
         }
-       
     }
 
     public function update(request $request){
