@@ -13,6 +13,8 @@ class Student extends Model
 
     public function calculateProfit($value){
         $profit = ($value * 2) + 1;
+        $a = 2 + 1 * 2;
+        $b = (136 * 25) / 100;
         return $profit;
     }
 }
