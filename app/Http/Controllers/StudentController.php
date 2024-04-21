@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -63,6 +64,23 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
         return redirect()->route('student');
+    }
+
+    public function login(request $request){
+        $email = $request->email;
+        $password = $request->password;
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // User is authenticated, create a token with a name
+            $token = Auth::user()->createToken('mobile-app-token')->accessToken;
+            return response()->json(['token' => $token], 200);
+        } else {
+            return response()->json(['message' => 'unauthorized'], 401);
+        }
+    }
+
+    public function getStudents(request $request){
+        $students = Student::all();
+        return response()->json(['students' => $students], 200);
     }
 
 }
