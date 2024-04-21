@@ -24,6 +24,14 @@
             <td>{{$teacher->id}}</td>
             <td>{{$teacher->name}}</td>
             <td>{{$teacher->phone}}</td>
+            <td>
+              <a href="{{route('edit-teacher',['id' => $teacher->id])}}">
+                <button class="btn btn-success">Edit</button>
+              </a>
+              <a href="{{route('delete-teacher',['id' => $teacher->id])}}">
+                <button class="btn btn-danger">Delete</button>
+              </a>
+            </td>
           </tr>
           @endforeach
         </tbody>

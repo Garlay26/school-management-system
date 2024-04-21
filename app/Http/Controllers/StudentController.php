@@ -45,24 +45,41 @@ class StudentController extends Controller
 
     public function update(request $request){
         // dd($request);
-        $student = Student::find($request->id);
-        $student->update([
-            'name' => $request->name,
-            'code' => $request->code,
-            'phone' => $request->phone,
-            'age' => $request->age,
-            'address' => $request->address,
-            'birthday' => date('Y-m-d',strtotime($request->birthday)),
-            'regsiter_date' =>date('Y-m-d',strtotime($request->register_date)),
-        ]);
-
-        return redirect()->route('student');
+        try {
+            $student = Student::find($request->id);
+            $student->update([
+                'name' => $request->name,
+                'code' => $request->code,
+                'phone' => $request->phone,
+                'age' => $request->age,
+                'address' => $request->address,
+                'birthday' => date('Y-m-d',strtotime($request->birthday)),
+                'regsiter_date' =>date('Y-m-d',strtotime($request->register_date)),
+            ]);
+    
+            return redirect()->route('student');
+            
+        } 
+        catch (\Throwable $th) {
+            return redirect()->route('teacher')->with('error','Something Went Wrong');
+        }
     }
+
+       
+    
     
     public function delete($id){
-        $student = Student::find($id);
+        try {
+    $student = Student::find($id);
         $student->delete();
         return redirect()->route('student');
     }
 
+    catch (\Throwable $th) {
+    return redirect()->route('teacher')->with('error','Something Went Wrong');
+}
+
+        
+
+}
 }
